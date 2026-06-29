@@ -1,5 +1,8 @@
 /*
-!CMakeLists.txt
-!src/
-!include/
 !.gitignore
+!CMakeLists.txt
+!debug/
+!include/
+!lsan.supp
+!Makefile
+!src/
