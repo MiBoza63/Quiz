@@ -11,6 +11,10 @@ Question::Question(ushort p_max = SHORT_MAX):
     Make_New();
 }
 
+bool Question::Check(ushort guess){
+    return guess == answer;
+}
+
 void Question::Make_New(){
     int random_number = rand();
     a = random_number % max;

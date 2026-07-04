@@ -9,6 +9,7 @@ struct Question{
     int answer;
     ushort max;
 
+    bool Check(ushort guess);
     Question(ushort p_max);
     void Make_New();
     string Get_String();

@@ -9,11 +9,12 @@ public:
     Window();
 
 protected:
+    short score = 0;
     Question question;
 
     // Child widgets:
     Gtk::Box hbox, vbox;
-    Gtk::Label label;
+    Gtk::Label question_label, score_label;
     Gtk::Entry entry;
 
     void Button_Click();
