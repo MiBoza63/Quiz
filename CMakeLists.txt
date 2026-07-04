@@ -1,7 +1,6 @@
-Cmake_Minimum_Required(VERSION 3.12)
-Project(Quiz)
-Add_Executable(Quiz)
-Target_Sources(Quiz
-    PRIVATE
-        src/Main.cpp
-)
+CMake_Minimum_Required(VERSION 3.10)
+Project(Calculator)
+
+
+Add_Subdirectory(libs)
+Add_Executable(Main PRIVATE calculator)
