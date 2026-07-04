@@ -12,8 +12,9 @@ protected:
     Question question;
 
     // Child widgets:
-    Gtk::Box m_VBox;
+    Gtk::Box hbox, vbox;
     Gtk::Label label;
+    Gtk::Entry entry;
 
     void Button_Click();
 };
