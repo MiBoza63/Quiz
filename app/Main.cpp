@@ -1,7 +1,6 @@
-#include <calculator.hpp>
+#include <Calculator.hpp>
 
 int main(){
-	Calculator();
 
-	return 0;
+	return Calculator();
 }

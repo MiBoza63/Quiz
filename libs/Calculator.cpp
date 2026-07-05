@@ -17,7 +17,7 @@ double Divide(double x, double y){
 	return x/y;
 }
 
-void Calculator(){
+int Calculator(){
 	int x, y, result;
 	short op_code;
 
@@ -50,4 +50,5 @@ void Calculator(){
 	}
 
 	cout<<result<<'\n';
+	return 0;
 }
