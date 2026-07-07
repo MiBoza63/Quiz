@@ -1,0 +1,23 @@
+name: CMake Build Only
+
+on:
+  push:
+    branches: [ "cmake-workflows" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Step 1: Configure CMake and create the 'build' output directory
+    - name: Configure CMake
+      run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+
+    # Step 2: Compile hellow.cpp into the hellow executable
+    - name: Build Project
+      run: cmake --build build --config Release
+
+      

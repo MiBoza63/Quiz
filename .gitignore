@@ -6,3 +6,5 @@
 !lsan.supp
 !Makefile
 !src/
+!.github/
+!.github/workflows/
