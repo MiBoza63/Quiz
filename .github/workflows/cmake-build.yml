@@ -2,7 +2,6 @@ name: CMake Build Only
 
 on:
   workflow_dispatch:
-    branches: [ "cmake-workflows" ]
 
 jobs:
   build:
@@ -11,6 +10,8 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
+      with:
+        ref: cmake-workflows
 
     # Step 1: Configure CMake and create the 'build' output directory
     - name: Configure CMake
