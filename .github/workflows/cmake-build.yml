@@ -1,7 +1,7 @@
 name: CMake Build Only
 
 on:
-  push:
+  workflow_dispatch:
     branches: [ "cmake-workflows" ]
 
 jobs:
@@ -20,4 +20,3 @@ jobs:
     - name: Build Project
       run: cmake --build build --config Release
 
-      
