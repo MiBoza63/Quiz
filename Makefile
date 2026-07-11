@@ -9,7 +9,6 @@ $(Debug_Objects): debug/%.o : src/%.cpp
 	$(CXX) $(Debug_Flags) -c $^ $(Include) -o $@
 Quiz: $(Debug_Objects)
 	$(CXX) $(Debug_Flags) $^ $(Include) -o $@
-Fuck_This: src/Fuck_This.cpp
 run_debug: Quiz
 	./$^
 clear:
