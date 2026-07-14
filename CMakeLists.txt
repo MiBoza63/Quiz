@@ -4,25 +4,21 @@ project(FetchContentExample LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# 1. Include the FetchContent module
 include(FetchContent)
 
+# 2. Declare the external JSON library
 FetchContent_Declare(
     json
     GIT_REPOSITORY https://github.com/nlohmann/json.git
-    GIT_TAG        v3.11.3 
+    GIT_TAG        v3.11.3
 )
 
+# 3. Download the library at configure time
 FetchContent_MakeAvailable(json)
 
+# 4. Define your executable
 add_executable(my_program main.cpp)
 
-# Link against the fetched target
+# 5. Link the JSON library
 target_link_libraries(my_program PRIVATE nlohmann_json::nlohmann_json)
-
-# --- ADD THIS NEW PART ---
-# Pass the environment variable from the terminal/GitHub Action straight into C++
-if(DEFINED ENV{ENV_TYPE})
-    target_compile_definitions(my_program PRIVATE APP_ENV="$ENV{ENV_TYPE}")
-else()
-    target_compile_definitions(my_program PRIVATE APP_ENV="dev")
-endif()
