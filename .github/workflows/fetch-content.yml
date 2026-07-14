@@ -24,8 +24,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       with:
-        # If 'dev' environment is selected, checkout 'dev' branch; otherwise default branch
-        ref: ${{ github.event.inputs.environment == 'dev' && 'dev' || '' }}
+        ref: ${{ github.event.inputs.environment}}
 
     - name: Show Selected Environment
       run: |
