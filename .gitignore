@@ -1,8 +1,5 @@
 /*
-!app/
 !CMakeLists.txt
-!libs/
 !.gitignore
-!.github/
-!.github/workflows/
-!test_main.cpp
+!Source/
+!Include/

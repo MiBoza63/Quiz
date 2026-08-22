@@ -13,8 +13,18 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(my_tests test_main.cpp)
-target_link_libraries(my_tests GTest::gtest_main)
+add_executable(Examples)
+target_sources(Examples
+    PRIVATE
+        Source/Equations.cpp
+        Source/Fraction.cpp
+        Source/Main.cpp
+        Source/Polynomial.cpp
+        Source/Vector2.cpp
+        Source/Vector3.cpp
+)
+target_include_directories(Examples PRIVATE Include)
+target_link_libraries(Examples GTest::gtest_main)
 
 include(GoogleTest)
-gtest_discover_tests(my_tests)
+gtest_discover_tests(Examples)
