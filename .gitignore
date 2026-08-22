@@ -1,10 +1,5 @@
 /*
 !.gitignore
 !CMakeLists.txt
-!debug/
 !include/
-!lsan.supp
-!Makefile
 !src/
-!.github/
-!.github/workflows/

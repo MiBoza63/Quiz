@@ -1,3 +1,0 @@
-leak:libfontconfig
-leak:libexpat
-leak:libglib
