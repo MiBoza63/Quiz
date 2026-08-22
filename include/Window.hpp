@@ -9,7 +9,7 @@ public:
     Window();
 
 protected:
-    short score = 0;
+    short score;
     Question question;
 
     // Child widgets:
@@ -18,6 +18,7 @@ protected:
     Gtk::Entry entry;
 
     void Button_Click();
+    ~Window();
 };
 
 #endif // Window_hpp

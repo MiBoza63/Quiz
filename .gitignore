@@ -3,3 +3,5 @@
 !CMakeLists.txt
 !include/
 !src/
+
+include/Score.bin

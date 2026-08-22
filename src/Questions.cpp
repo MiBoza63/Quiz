@@ -1,6 +1,9 @@
 #include "Questions.hpp"
-#include <stdlib.h>
+#include <fstream>
+#include <filesystem>
 #include <time.h>
+using std::ios;
+using std::string;
 using std::to_string;
 
 #define SHORT_MAX 1<<16 -1
@@ -29,4 +32,24 @@ string Question::Get_String(){
     result += " = ";
 
     return result;
+}
+
+int Read_Score(){
+    short score;
+    const char file_path[] = "include/Score.bin";
+    if(!std::filesystem::exists(file_path))
+        score = 0;
+    else{
+        std::ifstream input(file_path, ios::binary);
+        input.read((char*) &score, 2);
+        input.close();
+    }
+
+    return score;
+}
+
+void Save_Score(int score){
+    std::ofstream output("include/Score.bin", ios::binary);
+    output.write((char*) &score, 2);
+    output.close();
 }

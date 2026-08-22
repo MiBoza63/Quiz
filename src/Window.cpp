@@ -21,13 +21,15 @@ Window::Window():
     hbox(Gtk::Orientation::HORIZONTAL, 10),
     vbox(Gtk::Orientation::VERTICAL, 10),
     question(100),
-    score_label("Score: 0"),
     question_label( question.Get_String() ){
 
     set_title("Quiz");
     set_default_size(200, 120);
     set_child(vbox);
     vbox.set_margin(10);
+
+    score = Read_Score();
+    score_label.set_text("Score: " + to_string(score) );
 
     hbox.append(question_label);
     hbox.append(entry);
@@ -37,4 +39,8 @@ Window::Window():
     Gtk::Button* button = Gtk::make_managed<Gtk::Button>("Check");
     vbox.append(*button);
     button->signal_clicked().connect( sigc::mem_fun(*this, &Window::Button_Click) );
+}
+
+Window::~Window(){
+    Save_Score(score);
 }

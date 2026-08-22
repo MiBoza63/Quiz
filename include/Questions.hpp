@@ -2,7 +2,6 @@
 #define Questions_hpp
 
 #include <string>
-using std::string;
 
 struct Question{
     ushort a, b;
@@ -12,7 +11,10 @@ struct Question{
     bool Check(ushort guess);
     Question(ushort p_max);
     void Make_New();
-    string Get_String();
+    std::string Get_String();
 };
+
+int Read_Score();
+void Save_Score(int score);
 
 #endif // Questions_hpp
