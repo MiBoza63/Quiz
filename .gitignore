@@ -3,5 +3,5 @@
 !CMakeLists.txt
 !include/
 !src/
-
+!test_main.cpp
 include/Score.bin

@@ -1,21 +1,25 @@
-CMake_Minimum_Required(VERSION 3.20)
-Project(Quiz)
-Add_Executable(${PROJECT_NAME})
+cmake_minimum_required(VERSION 3.14)
+project(simple_gtest_demo)
 
-Find_Package(PkgConfig REQUIRED)
-pkg_check_modules(GTKMM REQUIRED gtkmm-4.0)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-Target_Include_Directories(${PROJECT_NAME}
-	PRIVATE
-		include
-		${GTKMM_INCLUDE_DIRS}
+include(FetchContent)
+
+if(POLICY CMP0135)
+  cmake_policy(SET CMP0135 NEW)
+endif()
+
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.15.2.zip
 )
-Target_Compile_Options(${PROJECT_NAME} PRIVATE ${GTKMM_CFLAGS_OTHER})
-Target_Link_Directories(${PROJECT_NAME} PRIVATE ${GTKMM_LIBRARY_DIRS})
-Target_Link_Libraries(${PROJECT_NAME} PRIVATE ${GTKMM_LIBRARIES})
-Target_Sources(${PROJECT_NAME}
-	PRIVATE
-		src/Main.cpp
-		src/Questions.cpp
-		src/Window.cpp
-)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+add_executable(my_tests test_main.cpp)
+target_link_libraries(my_tests GTest::gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(my_tests)
